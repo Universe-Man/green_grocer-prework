@@ -138,9 +138,9 @@ end
 # end
 #
 def checkout(cart, coupons)
-  binding.pry
+#  binding.pry
   consolidate_cart(cart)
   apply_coupons(cart, coupons)
   apply_clearance(cart)
-  binding.pry
+ binding.pry
 end
