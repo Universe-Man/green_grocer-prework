@@ -146,15 +146,10 @@ def checkout(cart, coupons)
   binding.pry
   clearance_cart.each do |food, data|
     total += data[:price] * data[:count]
-
-  apply_coupons(cart, coupons)
-  apply_clearance(cart)
-  cart.each do |hash|
-    hash.each do |food, data|
-      total += hash[food][:price]
-    end
   end
-   binding.pry
+  if total > 100
+    total = total * 0.9
+  end
   total
 
 end
