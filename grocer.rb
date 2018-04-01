@@ -144,7 +144,8 @@ def checkout(cart, coupons)
   coupon_cart = apply_coupons(tidyCart, coupons)
   clearance_cart = apply_clearance(coupon_cart)
   binding.pry
-
+  clearance_cart.each do |food, data|
+    total += data[:price] * data[:count]
 
   apply_coupons(cart, coupons)
   apply_clearance(cart)
