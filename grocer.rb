@@ -148,6 +148,7 @@ def checkout(cart, coupons)
       total += hash[food][:price]
     end
   end
+   binding.pry
   total
- binding.pry
+
 end
