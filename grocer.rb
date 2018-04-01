@@ -69,6 +69,7 @@ def apply_coupons(cart, coupons)
       endcare[food][:count] -= coupon[:num]
     end
   end
+end
   cart
 end
 #   # binding.pry
