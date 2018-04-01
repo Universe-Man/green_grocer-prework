@@ -140,7 +140,12 @@ end
 def checkout(cart, coupons)
   total = 0
 #  binding.pry
-  consolidate_cart(cart)
+  tidyCart = consolidate_cart(cart)
+  coupon_cart = apply_coupons(tidyCart, coupons)
+  clearance_cart = apply_clearance(coupon_cart)
+  binding.pry
+  
+  
   apply_coupons(cart, coupons)
   apply_clearance(cart)
   cart.each do |hash|
