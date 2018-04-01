@@ -138,9 +138,16 @@ end
 # end
 #
 def checkout(cart, coupons)
+  total = 0
 #  binding.pry
   consolidate_cart(cart)
   apply_coupons(cart, coupons)
   apply_clearance(cart)
+  cart.each do |hash|
+    hash.each do |food, data|
+      total += hash[food][:price]
+    end
+  end
+  total
  binding.pry
 end
