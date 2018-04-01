@@ -58,44 +58,57 @@ end
 # end
 #
 def apply_coupons(cart, coupons)
-  # binding.pry
-  cart.each do |item, data|
-    # binding.pry
-    data.each do |category, info|
-      # binding.pry
-      coupons.each do |coupon|
-        # binding.pry
-        coupon.each do |category2, info2|
-  #         binding.pry
-          if item == info2 && data[:count] >= coupon[:num]
-  #           binding.pry
-            if data[:count] == coupon[:num]
-              couponName = "#{item} W/COUPON"
-              cart[couponName] = data
-              cart[couponName][:count] = 1
-              cart[couponName][:price] = coupon[:cost]
-                      #some problem about being not being able to add a key to a hash during an iteration
-              cart.delete(item)
-  #             binding.pry
-                #remove whole thing from cart and add thing with coupopn as coupon
-            elsif data[:count] > coupon[:num]
-              couponName = "#{item} W/COUPON"
-              cart[couponName] = data
-              cart[couponName][:count] = 1
-              cart[couponName][:price] = coupon[:cost]
-              cart[item][:count] = catr[item][:count] - coupon[:num]
-  #            binding.pry
-              #subtract coup:num from cart item :count and add thing w/ coupon as coupon
-            end
-          else
-          end
-        end
-      end
+  coupons.each do |coupon|
+    food = coupon[:item]
+    if cart[food] && cart[food][:count] >= counpon[:num]
+      if cart["#{food} W/COUPON"]
+        cart["#{food} W/COUPON"][:count] += 1
+      else
+        cart["#{food} W/COUPON"] = {count: 1, price: coupon[:cost]}
+        cart["#{food} W/COUPON"][:clearance] = cart[food][:clearance]
+      endcare[food][:count] -= coupon[:num]
     end
   end
-  #binding.pry
+  cart
 end
-
+#   # binding.pry
+#   cart.each do |item, data|
+#     # binding.pry
+#     data.each do |category, info|
+#       # binding.pry
+#       coupons.each do |coupon|
+#         # binding.pry
+#         coupon.each do |category2, info2|
+#   #         binding.pry
+#           if item == info2 && data[:count] >= coupon[:num]
+#   #           binding.pry
+#             if data[:count] == coupon[:num]
+#               couponName = "#{item} W/COUPON"
+#               cart[couponName] = data
+#               cart[couponName][:count] = 1
+#               cart[couponName][:price] = coupon[:cost]
+#                       #some problem about being not being able to add a key to a hash during an iteration
+#               cart.delete(item)
+#   #             binding.pry
+#                 #remove whole thing from cart and add thing with coupopn as coupon
+#             elsif data[:count] > coupon[:num]
+#               couponName = "#{item} W/COUPON"
+#               cart[couponName] = data
+#               cart[couponName][:count] = 1
+#               cart[couponName][:price] = coupon[:cost]
+#               cart[item][:count] = catr[item][:count] - coupon[:num]
+#   #            binding.pry
+#               #subtract coup:num from cart item :count and add thing w/ coupon as coupon
+#             end
+#           else
+#           end
+#         end
+#       end
+#     end
+#   end
+#   #binding.pry
+# end
+#
 
 
 
