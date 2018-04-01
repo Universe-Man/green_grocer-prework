@@ -144,8 +144,8 @@ def checkout(cart, coupons)
   coupon_cart = apply_coupons(tidyCart, coupons)
   clearance_cart = apply_clearance(coupon_cart)
   binding.pry
-  
-  
+
+
   apply_coupons(cart, coupons)
   apply_clearance(cart)
   cart.each do |hash|
