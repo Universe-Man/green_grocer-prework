@@ -112,7 +112,15 @@ end
 #
 
 
-
+def apply_clearance(cart)
+  cart.each do |food, data|
+    if data[:clearance]
+      new_price = data[:price] * 0.8
+      data[:price] = new_price.round(2)
+    end
+  end
+  cart
+end
 # def apply_clearance(cart)
 #   cart.each do |hash|
 #     hash.each do |food, data|
