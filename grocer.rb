@@ -139,7 +139,6 @@ end
 #
 def checkout(cart, coupons)
   total = 0
-#  binding.pry
   tidyCart = consolidate_cart(cart)
   coupon_cart = apply_coupons(tidyCart, coupons)
   clearance_cart = apply_clearance(coupon_cart)
@@ -150,5 +149,4 @@ def checkout(cart, coupons)
     total = total * 0.9
   end
   total
-
 end
